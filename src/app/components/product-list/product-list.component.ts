@@ -22,4 +22,10 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  //delete product
+  deleteProduct(productId:any)
+  {
+    console.log("Deleting product with product id :"+productId);
+  }
+
 }
