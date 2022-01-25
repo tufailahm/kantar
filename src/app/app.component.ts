@@ -14,6 +14,9 @@ export class AppComponent implements OnInit {
     color = 'red';
     departments = [ "HR", "Finance", "Security", "Logistics"]
 
+    number1 !: string
+    number2 !: string
+    result !: number
     constructor(){
         console.log("default cons called");
         this.employeeName = "Jay Mehta"
@@ -32,5 +35,8 @@ export class AppComponent implements OnInit {
     changeImage(){
         this.imageURL="https://loremflickr.com/320/240"
     }
+    doSum(){
+        this.result = parseInt(this.number1) + parseInt(this.number2); 
+   }
    
 }

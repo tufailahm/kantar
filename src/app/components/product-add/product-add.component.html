@@ -1,1 +1,59 @@
-<p>product-add works!</p>
+<h1>Add Product Form</h1>
+<div class="container">
+    <form novalidate [formGroup]="productForm" (ngSubmit)="saveProduct()">
+        <fieldset>
+            <div class="form-group">
+                <label>Product Id</label>
+                <input type="text" formControlName="productId" class="form-control">
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('productId').hasError('required') && productForm.get('productId').dirty">
+                    Please enter product id
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" formControlName="productName" class="form-control">
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('productName').hasError('required') && productForm.get('productName').dirty">
+                    Please enter product name
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('productName').hasError('minlength') && productForm.get('productName').dirty">
+                    Please enter atleast 4 characters
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="form-group">
+                <label>Quantity On hand</label>
+                <input type="text" formControlName="quantityOnHand" class="form-control">
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('quantityOnHand').hasError('required') && productForm.get('quantityOnHand').dirty">
+                    Please enter quantity on hand
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('quantityOnHand').hasError('min') && productForm.get('quantityOnHand').dirty">
+                    quantityOnHand cannot be less than 2
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" formControlName="price" class="form-control">
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('price').hasError('required') && productForm.get('price').dirty">
+                    Please enter price
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="productForm.get('price').hasError('min') && productForm.get('price').dirty">
+                    price cannot be less than 0
+                </div>
+            </div>
+        </fieldset>
+        <!-- button should be enabled only when the form is valid-->
+        <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">{{ productId === -1 ? 'Save' :'Edit'}} Product</button>
+    </form>
+</div>

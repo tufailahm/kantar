@@ -1,6 +1,19 @@
+<br/>
+<br/>
+<a routerLink="productList">Home</a>|
+<a routerLink="employee">Employee</a>|
+<a routerLink="employeeList">EmployeeList</a>|
+<a routerLink="productList">Product List</a>|
+<a routerLink="productAdd">Product Add</a>|
 
-<app-product-list></app-product-list>
+<hr/>
 
+<router-outlet></router-outlet>
+
+<hr/>
+<br/>
+<br/>
+<br/>
 <button *ngIf="userLogged">Login</button>
 
 <div [ngSwitch]="color">
@@ -30,11 +43,16 @@
 <button (click)="changeImage()">Change Image</button>
 <button (mouseover)="changeName()">Change Name</button>
 <br/>
-Number 1 : <input type="text">
-Number 2 : <input type="text">
-<button>sum</button>
-Result : 
+Number 1 : <input type="text" name="number1" [(ngModel)]="number1">
+Number 2 : <input type="text" name="number2" [(ngModel)]="number2">
+<button (click)="doSum()">sum</button>
+Result : {{ number1}}  + {{ number2}}  = {{ result}}
 
 <br/>
-<app-employee></app-employee>
-<app-employee-list></app-employee-list>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
