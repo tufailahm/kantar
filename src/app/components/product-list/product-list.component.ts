@@ -12,6 +12,9 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   message !: string
+  loginDate = new Date();
+  contactNumber = "918867205331";
+  authorName = "Tufail"
   //DI
   constructor(public productService: ProductService, public router:Router) {
 
@@ -46,7 +49,7 @@ export class ProductListComponent implements OnInit {
 
   //navigate to any page programmatically
   navigateToProduct(){
-    this.router.navigate(["productAdd"]);
+    this.router.navigate(["productAdd","-1"]);
   }
 
 }

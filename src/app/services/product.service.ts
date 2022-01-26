@@ -41,9 +41,9 @@ export class ProductService {
 
   //Hands on 
   //updating a single product   -"http://localhost:3000/product"
-  updateProduct(product: Product, productId: number) {
+  updateProduct(product: Product, productId: number):  Observable<Product> {
 
-    this.httpClient.put(`${productURL}/${productId}`, product, this.httpOptions);
+    return this.httpClient.put(`${productURL}/${productId}`, product, this.httpOptions);
 
   }
 }

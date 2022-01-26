@@ -1,3 +1,8 @@
+<h2 appHoverFocus> You logged in at : {{ loginDate  | date:"MMMM d, y, h:mm:ss a z" | uppercase }} </h2>
+<h2>Please reach out to me : {{ contactNumber | mobileNumber }} </h2>
+<h2 appHideElement>Please reach out to author : {{ authorName | addTitle:'Mr':'ji' }} </h2>
+<h2 *appIfElement="true">Please reach out to author : {{ authorName | addTitle:'Dr':'garu' }} </h2>
+
 <h2><font color=green>{{message}}</font></h2>
 <div>
     <table border="1" bgcolor="lightblue" cellspacing="10" cellpadding="10">
@@ -11,9 +16,9 @@
         </tr>
         <tr *ngFor="let product of products">
             <td>{{product.productId}} </td>
-            <td>{{product.productName}} </td>
+            <td>{{product.productName | uppercase}} </td>
             <td>{{product.quantityOnHand}} </td>
-            <td>{{product.price}} </td>
+            <td>{{product.price | currency:'INR'}} </td>
             <td><button class="btn btn-danger" (click)="deleteProduct(product.productId)">Delete</button> </td>
             <td><button class="btn btn-danger" (click)="editProduct(product.productId)">Edit</button> </td>
 

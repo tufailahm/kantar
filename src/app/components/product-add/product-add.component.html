@@ -1,6 +1,6 @@
 <h1>Add Product Form</h1>
 <div class="container">
-    <form novalidate [formGroup]="productForm" (ngSubmit)="saveProduct()">
+    <form novalidate [formGroup]="productForm" (ngSubmit)="saveEditProduct()">
         <fieldset>
             <div class="form-group">
                 <label>Product Id</label>
@@ -54,6 +54,6 @@
             </div>
         </fieldset>
         <!-- button should be enabled only when the form is valid-->
-        <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">{{ productId === -1 ? 'Save' :'Edit'}} Product</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">{{ productId == -1 ? 'Save' :'Edit'}} Product</button>
     </form>
 </div>

@@ -1,0 +1,6 @@
+<p> PARENT - Temperature of the {{ cityName }}:
+     <input type="text" #cityTemp (keyup)="0"></p>
+<hr/>
+<app-city 
+        [temperature]="cityTemp.value"
+        (childEvent)="cityName=$event"></app-city>

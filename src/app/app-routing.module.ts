@@ -5,6 +5,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeComponent } from './components/employee/employee.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: "productList", component: ProductListComponent },
   { path: "productAdd", component: ProductAddComponent },
   { path: "productAdd/:productId", component: ProductAddComponent },
+  { path: "weather", component: WeatherComponent },
+
 ];
 
 @NgModule({

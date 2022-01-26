@@ -9,6 +9,13 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CityComponent } from './components/city/city.component';
+import { WeatherComponent } from './components/weather/weather.component';
+import { MobileNumberPipe } from './pipes/mobile-number.pipe';
+import { AddTitlePipe } from './pipes/add-title.pipe';
+import { HoverFocusDirective } from './directives/hover-focus.directive';
+import { HideElementDirective } from './directives/hide-element.directive';
+import { IfElementDirective } from './directives/if-element.directive';
 
 
 @NgModule({
@@ -17,7 +24,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EmployeeComponent,
     EmployeeListComponent,
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    CityComponent,
+    WeatherComponent,
+    MobileNumberPipe,
+    AddTitlePipe,
+    HoverFocusDirective,
+    HideElementDirective,
+    IfElementDirective
   ],
   imports: [
     BrowserModule,
