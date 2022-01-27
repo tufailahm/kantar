@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
     number1 !: string
     number2 !: string
     result !: number
+
+
     constructor(){
         console.log("default cons called");
         this.employeeName = "Jay Mehta"
@@ -24,6 +26,19 @@ export class AppComponent implements OnInit {
     ngOnInit(){
         console.log("ngOnInit called");
         this.employeeName = "Ahmed"
+
+
+        //worker code
+        if (typeof Worker !== 'undefined'){
+            const worker = new Worker(new URL('./demo-worker.worker',import.meta.url));
+            worker.onmessage = ({ data }) => {
+                console.log(`recieved the message : ${data}`)
+            }
+        }
+        else{
+            //fallback
+            console.log('Web worker is not supported in your browsers');
+        }
     }
     toggleDepartment(){
         this.showHideDepartments = !this.showHideDepartments;

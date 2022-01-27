@@ -5,4 +5,11 @@ describe('AddTitlePipe', () => {
     const pipe = new AddTitlePipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('should display title in format', () => {
+    const title ="Harshita"
+    const pipe = new AddTitlePipe();
+    const result = pipe.transform(title, 'Ms.', 'ji');
+    expect(result).toBe('Ms. Harshita ji');
+  });
 });

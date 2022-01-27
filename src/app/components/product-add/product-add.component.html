@@ -1,6 +1,6 @@
 <h1>Add Product Form</h1>
 <div class="container">
-    <form novalidate [formGroup]="productForm" (ngSubmit)="saveEditProduct()">
+    <form novalidate [formGroup]="productForm" (ngSubmit)="saveEditProduct()" *ngIf="productForm">
         <fieldset>
             <div class="form-group">
                 <label>Product Id</label>

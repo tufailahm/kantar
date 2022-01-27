@@ -7,7 +7,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CityComponent } from './components/city/city.component';
 import { WeatherComponent } from './components/weather/weather.component';
@@ -16,6 +16,9 @@ import { AddTitlePipe } from './pipes/add-title.pipe';
 import { HoverFocusDirective } from './directives/hover-focus.directive';
 import { HideElementDirective } from './directives/hide-element.directive';
 import { IfElementDirective } from './directives/if-element.directive';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { MyHttpInterceptorService } from './interceptors/my-http-interceptor.service';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { IfElementDirective } from './directives/if-element.directive';
     AddTitlePipe,
     HoverFocusDirective,
     HideElementDirective,
-    IfElementDirective
+    IfElementDirective,
+    WelcomeComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,14 @@ import { IfElementDirective } from './directives/if-element.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: MyHttpInterceptorService,
+        multi: true
+    }
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
