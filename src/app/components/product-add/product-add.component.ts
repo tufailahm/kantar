@@ -16,7 +16,7 @@ export class ProductAddComponent implements OnInit {
     public router: Router,
     public activatedRoute: ActivatedRoute,
     public formBuilder:FormBuilder) { }
-  productForm: FormGroup;
+  productForm?: FormGroup;
   product: Product;
   ngOnInit(): void {
     //code to retrieved the data for the product Id
@@ -83,14 +83,19 @@ export class ProductAddComponent implements OnInit {
   saveEditProduct() {
     if(this.productId == -1) {
       //save
-      this.productService.saveProduct(this.productForm.value).subscribe((data: any) => {
+      console.log("While saving :"+this.productForm.value);
+      this.productService.saveProduct(this.productForm?.value).subscribe((data: any) => {
+       
+      }, error => {
         this.router.navigate(["productList"])
       })
     }
     else {
       //edit
-      this.productService.updateProduct(this.productForm.value,this.productId).subscribe((data: any) => {
-        this.router.navigate(["productList"])
+      this.productService.updateProduct(this.productForm?.value,this.productId).subscribe((data: any) => {
+      }, 
+        error => {
+          this.router.navigate(["productList"])
       })
     }
    

@@ -31,7 +31,10 @@ export class ProductListComponent implements OnInit {
     this.productService.deleteProduct(productId).subscribe((data:any)=> {
       this.message = 'Product with product id : '+productId + ' deleted successfully';
       //i will get the data
-      this.refreshProducts();
+     // this.refreshProducts();
+    },
+    error => {
+        this.router.navigate([''])
     })
   }
 

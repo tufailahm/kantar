@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const productURL = "http://localhost:3000/product"
+//const productURL = "http://localhost:3000/product"
+const productURL = "http://localhost:9090/product"
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class ProductService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type':'application/json'
     })
   }
 
@@ -36,14 +38,15 @@ export class ProductService {
 
   //saving a single product   -"http://localhost:3000/product"
   saveProduct(product: Product): Observable<Product> {
-    return this.httpClient.post(productURL, product, this.httpOptions);
+    return this.httpClient.post(productURL, product);
   }
 
   //Hands on 
   //updating a single product   -"http://localhost:3000/product"
   updateProduct(product: Product, productId: number):  Observable<Product> {
 
-    return this.httpClient.put(`${productURL}/${productId}`, product, this.httpOptions);
-
+    return this.httpClient.put(`${productURL}/${productId}`, product);
   }
+
+  
 }
